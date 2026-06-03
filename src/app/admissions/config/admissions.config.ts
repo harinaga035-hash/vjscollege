@@ -24,7 +24,8 @@ export const ADMISSIONS_CONFIG: AdmissionsConfig = {
   defaultCourse: 'B. Pharmacy',
   courses: ['B. Pharmacy', 'Pharm.D', 'M.Pharmacy', 'D.Pharmacy', 'Other'],
   counsellor: 'Admissions Team',
-  crmEndpoint: '/api/admissions-leads',
+  crmEndpoint:
+    'https://script.google.com/macros/s/AKfycbw0fFZHvWmxkpf7vY0g-P55j7duKrDm-O2-lCHcpCn7_pZRAaGB53N7LNOWkq7IG7er/exec',
   whatsappNumber: '919951780088',
   brochures: [
     { course: 'B. Pharmacy', label: 'B. Pharmacy Brochure', url: '/assets/brochures/brochure-placeholder.pdf' },
