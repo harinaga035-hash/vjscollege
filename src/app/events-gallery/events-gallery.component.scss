@@ -1,0 +1,664 @@
+.breadcrumb__content {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.breadcrumb__title {
+  animation-delay: 0.2s;
+}
+
+.breadcrumb__desc {
+  animation-delay: 0.4s;
+  font-family: auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Styling - (Keep as is) */
+.interactive-gallery-section {
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1200px;
+  /* Max width for the whole section */
+  margin: 0 auto;
+  /* Center the section */
+}
+
+.gallery-main-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  color: #2c3e50;
+  margin-bottom: 60px;
+  position: relative;
+  display: inline-block;
+}
+
+.gallery-main-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #60060f;
+  border-radius: 2px;
+}
+
+/* Card Container for layout - (Keep as is) */
+/* Card Container for layout */
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+/* Individual Card Styling */
+.interactive-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  width: 350px;
+  min-width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.interactive-card:hover {
+  transform: translateY(-10px);
+  /* Slight lift on hover */
+}
+
+.card-content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* No direct transform on wrapper for this effect, overlays handle it */
+}
+
+/* Card Front (Initial state) */
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  z-index: 2;
+  /* Ensure it's on top initially */
+  opacity: 1;
+  /* Visible by default */
+  transition: opacity 0.3s ease;
+  /* Smooth fade out on hover */
+}
+
+.card-front img {
+  width: 100%;
+  // max-height: 70%;
+  /* Adjust image height within the card */
+  object-fit: cover;
+  // border-radius: 8px;
+  margin-bottom: 15px;
+  height: 315px;
+}
+
+.card-title {
+  font-size: 22px;
+  color: #006d6a;
+  margin: 0;
+}
+
+/* Card Back (Content that appears on hover) */
+/* Card Back (Content that appears on hover) */
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Keep column for heading + table wrapper */
+  align-items: center;
+  /* Center heading */
+  justify-content: flex-start;
+  /* Align content from top */
+  padding: 20px;
+  /* Padding for the entire back card */
+  box-sizing: border-box;
+  color: #ffffff;
+  opacity: 0;
+  z-index: 4;
+  transition: opacity 0.4s ease 0.3s;
+  text-align: left;
+}
+
+.month-heading {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  /* Space below heading */
+  width: 100%;
+  text-align: center;
+  flex-shrink: 0;
+  /* Prevent heading from shrinking */
+}
+
+/* NEW: Scroll Wrapper for the table content */
+.table-scroll-wrapper {
+  width: 100%;
+  flex-grow: 1;
+  /* Allows this wrapper to take up available space */
+  overflow-y: auto;
+  /* Enable vertical scrolling if content overflows */
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling on iOS */
+  padding-right: 5px;
+  /* Space for scrollbar if it appears */
+  box-sizing: border-box;
+  /* Include padding in width */
+
+  /* Optional: Custom Scrollbar Styles for Webkit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  /* End Custom Scrollbar Styles */
+}
+
+/* New CSS for the Table - (Keep the rest of the table styles as they were) */
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  /* overflow: hidden; Removed from table, now on wrapper */
+}
+
+.event-table thead th {
+  background-color: #006d6a;
+  /* <-- Make sure this is a SOLID color, not rgba */
+  /* ... other properties ... */
+  padding: 12px 8px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.1em;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.event-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.event-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.event-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.event-table td {
+  padding: 6px 10px;
+  vertical-align: top;
+  color: #ffffff;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column specific widths */
+.table-date-col {
+  width: 35%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-event-col {
+  width: 65%;
+  text-align: left;
+}
+
+/* Responsive adjustments for the table on small screens */
+@media (max-width: 480px) {
+
+  /* Keep existing table responsive styles */
+  .event-table thead {
+    display: none;
+  }
+
+  .event-table,
+  .event-table tbody,
+  .event-table tr,
+  .event-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .event-table tr {
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+  }
+
+  .event-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .event-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .event-table td.table-date-col::before {
+    content: "Date:";
+  }
+
+  .event-table td.table-event-col::before {
+    content: "Day:";
+    /* Changed from "Event:" to "Day:" to match your th */
+  }
+
+  .table-date-col,
+  .table-event-col {
+    width: auto;
+    text-align: right;
+  }
+}
+
+/* Other card styles (interactive-card, card-content-wrapper, overlays) remain the same */
+/* Update these rules in your style.css */
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  /* width: 50.5%;  <-- Let's try 51% for a stronger overlap */
+  height: 100%;
+  background-color: #60060f;
+  z-index: 3;
+  transition: transform 0.6s ease-in-out;
+}
+
+.card-overlay-left {
+  left: 0;
+  width: 51%;
+  /* Increased slightly */
+  transform: translateX(-100%);
+  transform-origin: right center;
+  /* Added 'center' for Y-axis precision, though often not strictly necessary for translateX */
+}
+
+.card-overlay-right {
+  right: 0;
+  width: 51%;
+  /* Increased slightly */
+  transform: translateX(100%);
+  transform-origin: left center;
+  /* Added 'center' for Y-axis precision */
+}
+
+/* Hover Effects */
+.interactive-card:hover .card-front {
+  opacity: 0;
+  /* Fade out the image and front content */
+}
+
+.interactive-card:hover .card-overlay-left {
+  transform: translateX(0%);
+  /* Slide in from left to cover left half */
+}
+
+.interactive-card:hover .card-overlay-right {
+  transform: translateX(0%);
+  /* Slide in from right to cover right half */
+}
+
+.interactive-card:hover .card-back {
+  opacity: 1;
+  /* Fade in the back content */
+}
+
+
+/* Responsive adjustments - (Keep as is from previous revision) */
+@media (min-width: 576px) {
+  .interactive-card {
+    width: calc(50% - 15px);
+    /* 2 cards per row on smaller tablets */
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .interactive-card {
+    width: calc(33.333% - 20px);
+    /* Still prefer 3 cards if space allows without breaking scroll */
+    max-width: 380px;
+    /* Limit max size */
+    height: 420px;
+  }
+
+  .gallery-main-heading {
+    color: #60060f;
+    font-size: 41px;
+    font-weight: 700;
+    font-family: 'Font Awesome 5 Pro';
+  }
+}
+
+/* For screens larger than 1200px, if you want to keep 3 cards and not go to 4 */
+@media (min-width: 1200px) {
+  .interactive-card {
+    width: calc(33.333% - 20px);
+    /* Keep 3 cards on very large screens */
+    max-width: 380px;
+    height: 420px;
+  }
+
+  .gallery-main-heading {
+    color: #60060f;
+    font-size: 31px;
+    font-weight: 700;
+    font-family: 'Font Awesome 5 Pro';
+  }
+}
+
+/* Small adjustments for very small screens */
+@media (max-width: 380px) {
+  .gallery-main-heading {
+    color: #60060f;
+    font-size: 41px;
+    font-weight: 700;
+    font-family: 'Font Awesome 5 Pro';
+  }
+
+  .interactive-card {
+    height: 400px;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+  }
+
+  .month-heading {
+    font-size: 1.3em;
+  }
+
+  .event-list li {
+    font-size: 1em;
+    padding: 8px 12px;
+  }
+}
+
+.media-showcase-section {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+.media-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.media-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #60060f;
+}
+
+.media-card-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  /* For Firefox */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* For IE and Edge */
+  white-space: nowrap;
+  /* Prevents wrapping of cards */
+}
+
+.media-card-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.media-card-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.media-card-wrapper::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.media-card-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.media-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.media-card img {
+  width: 100%;
+  height: auto;
+  /* Maintains aspect ratio, ensuring horizontal orientation */
+  object-fit: cover;
+  /* Ensures the image fills the space while maintaining aspect ratio */
+  min-height: 200px;
+  /* Optional: Sets a minimum height to avoid distortion */
+}
+
+.media-caption {
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .media-card {
+    width: 250px;
+  }
+
+  .media-card-wrapper {
+    gap: 15px;
+  }
+
+  .media-card img {
+    min-height: 150px;
+    /* Adjusted for mobile */
+  }
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #60060f;
+  font-size: 31px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-section img:hover {
+  transform: scale(1.05);
+}
+
+.program-info {
+  margin: 30px 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.program-info h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #ff6f61, #e84a5f);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #e84a5f, #ff6f61);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .program-info h2 {
+    font-size: 1.4em;
+  }
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.grid-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 16px;
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 6px 5px 4px rgb(28 28 28 / 83%);
+  text-align: center;
+}
+
+
+/* Desktop view */
+@media (min-width: 768px) {
+  .grid-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .grid-button {
+    flex: 1 1 calc(33.333% - 32px);
+    max-width: calc(33.333% - 32px);
+  }
+}

@@ -1,0 +1,513 @@
+/* Notification Bar */
+.notification-bar {
+    background-color: #60060f;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.notification-bar p {
+    margin: 0;
+    white-space: normal;
+    text-align: center;
+}
+
+.social-icons {
+    position: absolute;
+    right: 26px;
+    display: flex;
+    gap: 36px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #cccccc;
+}
+
+@media (max-width: 576px) {
+    .notification-bar {
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+
+    .social-icons {
+        right: 8px;
+        gap: 8px;
+        display: none;
+    }
+
+    .social-icons a {
+        font-size: 14px;
+    }
+}
+
+/* Fixed Header */
+#xb-header-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Body Padding to Prevent Content Overlap */
+body {
+    padding-top: 120px;
+}
+
+/* Header Layout */
+.header__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ul_li_between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: #fff;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-left {
+    display: flex;
+    gap: 11px;
+    margin-right: 260px;
+}
+
+.top-btn {
+    background-color: #006d6a;
+    color: white;
+    border: none;
+    padding: 0px 14px;
+    font-size: 13px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.top-right {
+    color: #900c17;
+    font-size: 14px;
+    text-align: right;
+}
+
+.top-right .email a {
+    color: #900c17;
+    text-decoration: none;
+}
+
+.top-right .email a:hover {
+    text-decoration: underline;
+}
+
+/* Main Menu */
+.main-menu__wrap {
+    flex-grow: 1;
+}
+
+.main-menu .navbar-nav {
+    gap: 0px;
+    margin-right: 262px;
+    margin-top: 8px;
+    position: relative;
+    right: 96px;
+}
+
+.main-menu .nav-link {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 7px;
+    transition: color 0.3s;
+}
+
+.main-menu .nav-link:hover {
+    color: #006d6a;
+}
+
+/* Hamburger Menu Styling */
+.navbar-toggler {
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #006d6a;
+    background: transparent;
+    display: none;
+    /* Hidden by default, shown on mobile */
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler i {
+    color: #006d6a;
+    position: relative;
+    bottom: 34px;
+    left: 311px;
+
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .navbar-toggler {
+        display: block;
+
+        /* Show hamburger on mobile */
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        display: none;
+    }
+
+    .top-left {
+        right: 0;
+    }
+
+    .top-right {
+        text-align: left;
+    }
+
+    .main-menu__wrap {
+        width: 100%;
+    }
+
+    .navbar-collapse {
+        background-color: #fff;
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        margin-top: -20px;
+        margin-left: -3px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 10px 0 !important;
+        border-bottom: 1px solid #eee;
+    }
+
+    .main-menu .nav-link {
+        position: relative;
+        right: 0px;
+        width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+
+    body {
+        padding-top: 100px;
+        /* Adjust for smaller header on mobile */
+    }
+
+    .main-menu .nav-link {
+        position: relative;
+        right: -98px;
+        width: 260px;
+
+    }
+}
+
+/* Tab View for Tablet (768x1024) */
+@media (min-width: 768px) and (max-width: 768px) and (min-height: 1024px) and (max-height: 1024px) {
+    .main-menu .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        /* Horizontal tabs */
+        justify-content: center;
+        /* Center tabs */
+        gap: 0;
+        /* No gap between tabs */
+        background-color: #f5f5f5;
+        /* Tab bar background */
+        border-bottom: 2px solid #ccc;
+        /* Bottom border for tab bar */
+        width: 100%;
+        /* Full width */
+        margin: 0;
+        /* Reset margins */
+        right: 0;
+        /* Reset positioning */
+        padding: 0;
+    }
+
+    .main-menu .nav-item {
+        flex: 1;
+        /* Equal width for tabs */
+        max-width: 150px;
+        /* Cap tab width for 768px screen */
+        text-align: center;
+        margin: 0;
+    }
+
+    .main-menu .nav-link {
+        display: block;
+        padding: 8px 6px;
+        /* Compact padding for 768px */
+        font-size: 13px;
+        /* Smaller font for better fit */
+        color: #333;
+        /* Default text color */
+        background-color: #f5f5f5;
+        /* Default tab background */
+        border: 1px solid #ccc;
+        /* Tab border */
+        border-bottom: none;
+        /* Remove bottom border for active effect */
+        border-radius: 4px 4px 0 0;
+        /* Rounded top corners */
+        margin-right: -1px;
+        /* Overlap borders to avoid double lines */
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
+        right: 0;
+        /* Reset positioning */
+        white-space: nowrap;
+        /* Prevent text wrapping */
+        overflow: hidden;
+        /* Handle overflow */
+        text-overflow: ellipsis;
+        /* Ellipsis for long text */
+    }
+
+    .main-menu .nav-link:hover,
+    .main-menu .nav-link.active {
+        background-color: #006d6a;
+        /* Active/hover tab background */
+        color: white;
+        /* Active/hover text color */
+    }
+
+    .main-menu .nav-item:last-child .nav-link {
+        margin-right: 0;
+        /* No extra margin for last tab */
+    }
+
+    .navbar-collapse {
+        background-color: transparent;
+        /* Remove mobile background */
+        padding: 0;
+        /* Remove mobile padding */
+        border-top: none;
+        /* Remove mobile border */
+        margin: 0;
+        /* Reset margins */
+    }
+
+    .navbar-toggler {
+        display: block;
+        margin-left: 300px;
+        /* Keep hamburger for toggling */
+    }
+}
+
+/* Responsive Header for Screen Widths 500px to 1313px */
+@media (min-width: 500px) and (max-width: 1313px) {
+    .main-menu .navbar-nav {
+        display: none;
+        /* Hidden by default for toggle */
+        flex-direction: row;
+        /* Horizontal tabs */
+        justify-content: center;
+        /* Center tabs */
+        gap: 0;
+        /* No gap between tabs */
+        background-color: #f5f5f5;
+        /* Tab bar background */
+        border-bottom: 2px solid #ccc;
+        /* Bottom border for tab bar */
+        width: 100%;
+        /* Full width */
+        margin: 0;
+        /* Reset margins */
+        right: 0;
+        /* Reset positioning */
+        padding: 0;
+    }
+
+    .main-menu .navbar-nav.show {
+        display: flex;
+        /* Show tabs when toggled */
+    }
+
+    .main-menu .nav-item {
+        flex: 1;
+        /* Equal width for tabs */
+        max-width: 180px;
+        /* Cap tab width for varying screen sizes */
+        text-align: center;
+        margin: 0;
+    }
+
+    .main-menu .nav-link {
+        display: block;
+        padding: 10px 8px;
+        /* Adjusted padding for tab appearance */
+        font-size: 14px;
+        /* Font size for readability */
+        color: #333;
+        /* Default text color */
+        background-color: #f5f5f5;
+        /* Default tab background */
+        border: 1px solid #ccc;
+        /* Tab border */
+        border-bottom: none;
+        /* Remove bottom border for active effect */
+        border-radius: 4px 4px 0 0;
+        /* Rounded top corners */
+        margin-right: -1px;
+        /* Overlap borders to avoid double lines */
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
+        right: 0;
+        /* Reset positioning */
+        white-space: nowrap;
+        /* Prevent text wrapping */
+        overflow: hidden;
+        /* Handle overflow */
+        text-overflow: ellipsis;
+        /* Ellipsis for long text */
+    }
+
+    .main-menu .nav-link:hover,
+    .main-menu .nav-link.active {
+        background-color: #006d6a;
+        /* Active/hover tab background */
+        color: white;
+        /* Active/hover text color */
+    }
+
+    .main-menu .nav-item:last-child .nav-link {
+        margin-right: 0;
+        /* No extra margin for last tab */
+    }
+
+    .navbar-collapse {
+        background-color: transparent;
+        /* Remove mobile background */
+        padding: 0;
+        /* Remove mobile padding */
+        border-top: none;
+        /* Remove mobile border */
+        margin: 0;
+        /* Reset margins */
+    }
+
+    .navbar-toggler {
+        display: block;
+        /* Ensure hamburger is visible */
+        background: transparent;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #006d6a;
+        position: relative;
+        bottom: 30px;
+        left: 0;
+        /* Reset positioning */
+        margin-left: auto;
+        /* Align to right */
+    }
+
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .navbar-toggler i {
+        color: #006d6a;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        /* Reset icon positioning */
+    }
+    .social-icons{
+        display: none !important;
+    }
+}
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        z-index: 1000;
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .dropdown-item {
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    @media (max-width: 768px) {
+    .navbar-collapse {
+        max-height: 300px; /* Adjust height as needed */
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+    .navbar-nav {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .nav-item {
+        display: inline-block;
+    }
+    .nav-link {
+        padding: 10px 15px;
+        display: inline-block;
+    }
+}

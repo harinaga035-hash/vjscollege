@@ -1,0 +1,14 @@
+Node Express server listening on http://localhost:4713
+[Admissions CRM] API Request {
+  source: 'Apply',
+  course: 'B. Pharmacy',
+  mobile: '9876543210',
+  pageUrl: 'http://127.0.0.1:4713/home',
+  leadType: 'Enquiry',
+  studentName: 'Test Student',
+  deviceType: 'Desktop',
+  date: '2026-06-02',
+  leadId: 'TEST-APPLY-4',
+  status: 'New',
+  timestamp: '16:16:00'
+}

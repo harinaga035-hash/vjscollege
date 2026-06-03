@@ -1,0 +1,587 @@
+.breadcrumb__content {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.breadcrumb__title {
+    animation-delay: 0.2s;
+}
+
+.breadcrumb__desc {
+    animation-delay: 0.4s;
+    font-family: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Existing styles */
+.management-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    // padding: 40px 20px;
+}
+
+.management-section h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    // margin-bottom: 40px;
+    color: #60060f;
+}
+
+.management-profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.management-profile.reverse {
+    flex-direction: row-reverse;
+}
+
+.profile-text {
+    flex: 1 1 60%;
+    min-width: 300px;
+    padding-right: 20px;
+}
+
+.profile-text h3 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #60060f;
+}
+
+.profile-text .designation {
+    font-weight: bold;
+    color: #60060f;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.profile-text p {
+    text-align: justify;
+    color: #333;
+    font-size: 14px;
+    line-height: 23px !important;
+}
+
+.profile-img {
+    flex: 1 1 35%;
+    min-width: 250px;
+    text-align: center;
+}
+
+.profile-img img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-top: 12px;
+    transition: transform 0.3s ease;
+    /* Retain hover transition */
+}
+
+/* Hover effect for images */
+.profile-img img:hover {
+    transform: scale(1.05);
+    /* Slight scale-up on hover */
+}
+
+/* Animation class to be added dynamically */
+.animate {
+    animation: bounceIn 1s ease-out forwards;
+}
+
+/* Bounce animation keyframes */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1) translateY(-10px);
+    }
+
+    70% {
+        transform: scale(0.95) translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .management-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .management-profile.reverse {
+        flex-direction: column;
+    }
+
+    .profile-text {
+        padding-right: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Rotate animation for mission-vision items */
+.mission-vission-item.animate {
+    animation: rotateIn 1s ease-out forwards;
+}
+
+/* Define rotateIn animation */
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: rotate(-15deg) scale(0.8);
+        transform-origin: center;
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: rotate(5deg) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* Stagger animation for the second mission-vision item */
+.mission-vission-item:nth-child(2).animate {
+    animation-delay: 0.2s;
+}
+
+/* Animation base state */
+.slide-in-left,
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(0);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* Slide from left */
+.slide-in-left {
+    transform: translateX(-100px);
+    animation-name: slideInLeft;
+}
+
+/* Slide from right */
+.slide-in-right {
+    transform: translateX(100px);
+    animation-name: slideInRight;
+}
+
+/* Keyframes */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- CSS for HTML/CSS-only Tabs (Revised) --- */
+
+/* Hide the actual radio buttons */
+.program-filter-radio {
+    display: none;
+}
+
+/* Style for tab buttons (labels) */
+.program-menu-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 6px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    /* border-radius: 5px; */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+    /* Allows margin and padding to be applied correctly */
+}
+
+/* Style for active tab button */
+/* This selects the label associated with the checked radio button within the .program-menu */
+#tab1:checked~.program-menu label[for="tab1"],
+#tab2:checked~.program-menu label[for="tab2"],
+#tab3:checked~.program-menu label[for="tab3"],
+#tab4:checked~.program-menu label[for="tab4"],
+#tab5:checked~.program-menu label[for="tab5"] {
+    background-color: #60060f;
+    /* Primary color for active button, matching your image */
+    color: #fff;
+    border-color: #60060f;
+}
+
+/* Hover effect for tab buttons */
+.program-menu-btn:hover {
+    background-color: #e2e2e2;
+}
+
+/* --- Tab Content Pane Styling and Animation --- */
+
+/* Hide all tab content panes by default */
+.program-tab-pane {
+    /* Initially hide completely */
+    opacity: 0;
+    height: 0;
+    /* Collapse height */
+    overflow: hidden;
+    /* Hide content overflow */
+    visibility: hidden;
+    /* Hide from accessibility tree */
+    /* Smooth transition for showing/hiding */
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    /* Important: Use 'height' instead of 'max-height' for a more predictable collapse,
+       but 'height: auto' cannot be transitioned. We'll use a large fixed height for 'shown' state. */
+}
+
+/* Show the active tab content pane */
+/* We target the specific content div using the :checked pseudo-class of the radio button */
+#tab1:checked~.program-content #content-tab1,
+#tab2:checked~.program-content #content-tab2,
+#tab3:checked~.program-content #content-tab3,
+#tab4:checked~.program-content #content-tab4,
+#tab5:checked~.program-content #content-tab5 {
+    opacity: 1;
+    /* Fade in */
+    height: auto;
+    /* Allow content to take natural height */
+    visibility: visible;
+    /* Make visible to accessibility tree */
+    /* If 'height: auto' doesn't transition smoothly, use a large fixed height for the shown state
+       and reset 'height: 0' for hidden. For example:
+       height: 1000px; /* Adjust this value to be larger than your tallest tab content */
+    /* To make 'height: auto' transition effectively, you often need JavaScript
+       or a trick with max-height. Since you want CSS-only, let's use a large max-height. */
+    max-height: 2000px;
+    /* Use max-height for better transition with variable content */
+    transition: opacity 0.5s ease-in-out, max-height 0.7s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+
+/* --- Grid Item Styling for 3 images per row & Responsiveness --- */
+
+/* Your existing Bootstrap-like column classes should work as they did before */
+.grid-item {
+    box-sizing: border-box;
+    /* Ensures padding/border are included in width */
+    margin-bottom: -24px;
+    /* Spacing between rows, consistent with your original HTML */
+    /* Add padding to the column to create spacing between images */
+    padding: 2px;
+    /* Adjust as needed for spacing between images within a row */
+}
+
+/* Ensure images fit horizontally within their containers */
+.xb-item--img {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.xb-item--img img {
+    max-width: 89%;
+    height: 265px;
+    display: block;
+    border-radius: 18px;
+}
+
+/* --- Responsiveness for the button group --- */
+.program-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 7px;
+    /* Space between buttons */
+}
+
+/* Adjust button font size and padding for smaller screens */
+@media (max-width: 768px) {
+    .program-menu-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .program-menu-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* Ensure the .row.grid maintains its negative margins if your framework uses them */
+.row.grid {
+    display: flex;
+    /* Ensure flex behavior for columns */
+    flex-wrap: wrap;
+    /* Allow columns to wrap */
+    margin-left: -15px;
+    /* Adjust if your framework's .row has negative margins */
+    margin-right: -15px;
+    /* Adjust if your framework's .row has negative margins */
+}
+
+/* === MOBILE VIEW FIX for tab content layout and images === */
+@media (max-width: 576px) {
+    .grid-item {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        padding: 10px;
+    }
+
+    .xb-item--img {
+        height: auto;
+    }
+
+    .xb-item--img img {
+        width: 100%;
+        height: auto;
+        /* important */
+        object-fit: contain;
+        /* prevents cropping */
+        display: block;
+    }
+
+    /* Ensure tab pane expands fully in mobile */
+    .program-tab-pane {
+        height: auto !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+    }
+}
+
+
+/* === MOBILE VIEW SPECIFIC STYLES (Applies to screens up to 575.98px wide) === */
+
+@media (max-width: 575.98px) {
+
+    /* --- Tab Button Adjustments for smaller screens --- */
+    .program-menu-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin: 3px;
+        /* Slightly reduce margin between buttons on small screens */
+    }
+
+    /* --- Tab Content Pane Overrides for Mobile --- */
+
+    /* Hide ALL tab panes by default on mobile. This is a strong hide. */
+    .program-content .program-tab-pane {
+        // display: none !important; /* Force hide with !important */
+        opacity: 0 !important;
+        max-height: 0 !important;
+        visibility: hidden !important;
+        transition: none !important;
+        /* No transitions on mobile */
+    }
+
+    /* WHEN a radio button is CHECKED, show ITS corresponding tab pane.
+       This rule MUST be placed AFTER the general hide rule above. */
+    #tab1:checked~.program-content #content-tab1,
+    #tab2:checked~.program-content #content-tab2,
+    #tab3:checked~.program-content #content-tab3,
+    #tab4:checked~.program-content #content-tab4,
+    #tab5:checked~.program-content #content-tab5 {
+        // display: block !important; /* Force show with !important */
+        opacity: 1 !important;
+        /* Ensure full visibility */
+        max-height: none !important;
+        /* Allow natural height */
+        visibility: visible !important;
+        /* Make it interactive */
+    }
+
+
+    /* --- Grid Item (Images) Adjustments for Mobile --- */
+    .grid-item {
+        width: 100%;
+        /* Force full width for stacking images */
+        max-width: 100%;
+        flex: 0 0 100%;
+        /* Ensure flexbox also treats it as full width */
+        padding: 10px;
+        /* Adjust padding around each image item */
+        margin-bottom: 20px;
+        /* Spacing between stacked images */
+    }
+
+    /* Ensure images fill width but maintain aspect ratio on mobile */
+    .xb-item--img img {
+        width: 100%;
+        /* Fill the width of the grid item */
+        height: auto;
+        /* Allow height to adjust naturally to maintain aspect ratio */
+        object-fit: contain;
+        /* Ensures the entire image is visible, no cropping */
+    }
+
+    /* Adjust negative margins for the row if your framework uses them */
+    .row.grid {
+        margin-left: -5px;
+        /* Reduce negative margins for smaller screens if needed */
+        margin-right: -5px;
+        /* Reduce negative margins for smaller screens if needed */
+    }
+}
+
+.xb-item--img {
+    position: relative;
+}
+
+.pdf-btn-on-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #60060f;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.pdf-btn-on-image:hover {
+    background-color: #60060f;
+}
+
+
+
+
+
+.video-section {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.video-container {
+    width: 100%;
+}
+
+.responsive-iframe {
+    position: relative;
+    padding-bottom: 40%;
+    /* Decreased height */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    /* Remove rounded corners if you want edge-to-edge */
+}
+
+h2 {
+    text-align: center;
+}
+
+.icc-card {
+    border: 1px solid #999;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.icc-card div {
+    margin: 5px 0;
+}
+
+.label {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+    .icc-table {
+        width: 95%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    .icc-table th,
+    .icc-table td {
+        border: 1px solid #999;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .mobile-view {
+        display: none;
+    }
+
+    .desktop-view {
+        display: block;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+    .mobile-view {
+        display: block;
+        padding: 10px;
+    }
+
+    .desktop-view {
+        display: none;
+    }
+}

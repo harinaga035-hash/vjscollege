@@ -1,0 +1,44 @@
+<form class="vjs-lead-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="vjs-lead-form__heading">
+    <span>VJ's College Of Pharmacy</span>
+    <h2>{{ title }}</h2>
+  </div>
+
+  <div class="vjs-lead-form__grid">
+    <label>
+      Student Name
+      <input type="text" formControlName="studentName" autocomplete="name" placeholder="Enter student name">
+      <small *ngIf="fieldInvalid('studentName')">Student name is required.</small>
+    </label>
+
+    <label>
+      Mobile
+      <input type="tel" formControlName="mobile" autocomplete="tel" maxlength="10" placeholder="10-digit mobile">
+      <small *ngIf="fieldInvalid('mobile')">Enter a valid 10-digit mobile number.</small>
+    </label>
+
+    <label class="vjs-lead-form__wide">
+      Course Interest
+      <select formControlName="course">
+        <option *ngFor="let courseOption of config.courses" [value]="courseOption">{{ courseOption }}</option>
+      </select>
+      <small *ngIf="fieldInvalid('course')">Select a course.</small>
+    </label>
+  </div>
+
+  <button class="vjs-lead-form__submit" type="submit" [disabled]="submitting">
+    <!-- {{ submitting ? 'Submitting...' : (leadType === 'Brochure' ? 'Submit & Get Brochure' : 'Submit Enquiry') }} -->
+    {{ submitting
+    ? 'Submitting...'
+    : leadType === 'Brochure'
+    ? 'Submit & Get Brochure'
+    : leadType === 'Call'
+    ? 'Submit & Call Now'
+    : 'Submit Enquiry'
+    }}
+  </button>
+
+  <p class="vjs-lead-form__thanks" *ngIf="submitMessage">
+    Thank you. {{ submitMessage }}
+  </p>
+</form>

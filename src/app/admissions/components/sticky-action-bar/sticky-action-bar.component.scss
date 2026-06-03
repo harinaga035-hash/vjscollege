@@ -1,0 +1,106 @@
+.vjs-sticky-actions {
+  bottom: 180px;
+  display: grid;
+  gap: 14px;
+  position: fixed;
+  right: 40px;
+  z-index: 1040;
+}
+
+.vjs-sticky-actions__btn {
+  align-items: center;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(16, 24, 40, .18), 0 2px 6px rgba(16, 24, 40, .12);
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 22px;
+  height: 60px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: box-shadow .2s ease, transform .2s ease;
+  width: 60px;
+}
+
+.vjs-sticky-actions__btn:hover {
+  box-shadow: 0 16px 34px rgba(16, 24, 40, .22), 0 4px 10px rgba(16, 24, 40, .14);
+  transform: translateY(-2px);
+}
+
+.vjs-sticky-actions__btn:focus-visible {
+  outline: 3px solid rgba(15, 122, 64, .3);
+  outline-offset: 3px;
+}
+
+.vjs-sticky-actions__btn--apply {
+  background: #174a7c;
+}
+
+.vjs-sticky-actions__btn--call {
+  background: #111827;
+}
+
+.vjs-sticky-actions__btn--brochure {
+  background: #f59e0b;
+}
+
+.vjs-sticky-actions__btn--brochure i {
+  color: #27150a;
+}
+
+.vjs-admission-modal {
+  align-items: center;
+  background: rgba(12, 18, 31, .62);
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 18px;
+  position: fixed;
+  z-index: 1100;
+}
+
+.vjs-admission-modal--open {
+  display: flex;
+}
+
+.vjs-admission-modal__panel {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, .24);
+  max-height: calc(100vh - 36px);
+  max-width: 760px;
+  overflow: auto;
+  padding: 24px;
+  position: relative;
+  width: min(760px, 100%);
+}
+
+.vjs-admission-modal__close {
+  background: #f2f4f7;
+  border: 0;
+  border-radius: 50%;
+  color: #101828;
+  cursor: pointer;
+  font-size: 18px;
+  height: 34px;
+  line-height: 1;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 34px;
+}
+
+@media (max-width: 760px) {
+  .vjs-sticky-actions {
+    bottom: 180px;
+    right: 40px;
+  }
+
+  .vjs-admission-modal__panel {
+    border-radius: 8px 8px 0 0;
+    max-height: calc(100vh - 20px);
+    padding: 20px 14px 14px;
+  }
+}

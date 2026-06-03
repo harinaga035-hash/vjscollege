@@ -1,0 +1,11 @@
+[Admissions CRM] Sheet Save Failure Error: Google Sheets credentials are not configured. Set GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_PRIVATE_KEY.
+    at q4 (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:66:475)
+    at io (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:66:1400)
+    at P4 (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:66:1786)
+    at j4 (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:66:2036)
+    at file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:66:3333
+    at ga.handle_request (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:40:3181)
+    at p (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:40:5255)
+    at ba.dispatch (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:40:5054)
+    at ga.handle_request (file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:40:3181)
+    at file:///E:/vjs_college_sourcecode/dist/vjs/server/server.mjs:40:7951

@@ -1,0 +1,87 @@
+.footer-bottom {
+    background: #60060f;
+    margin-top: 1px;
+    // padding-top: 1px;
+    // padding-bottom: 13px;
+
+    /* Add Flexbox properties here */
+    display: flex;
+    /* Make the container a flex container */
+    justify-content: space-between;
+    /* Distribute items with space between them */
+    align-items: center;
+    /* Vertically align items in the center */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line on smaller screens */
+    gap: 15px;
+    /* Add some gap between the two columns on larger screens */
+}
+
+.footer-bottom .copyright {
+    /* Existing styles for text-center, if any, will apply */
+    flex: 1;
+    /* Allow each item to grow and shrink, taking equal space */
+    min-width: 280px;
+    /* Ensure a minimum width before wrapping */
+    color: #fff;
+    /* Assuming white text color for copyright in a dark footer */
+    font-size: 0.9em;
+    /* Adjust font size for better fit */
+    line-height: 1.5;
+    /* Improve readability */
+    text-align: center;
+    /* Keep text centered within its flex item */
+}
+
+.footer-bottom .copyright p {
+    margin: 0;
+    /* Remove default paragraph margin */
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+.footer-bottom .copyright a {
+    color: #ffd700;
+    /* Example link color (gold/yellow) for contrast */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.footer-bottom .copyright a:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+.footer-bottom .copyright img {
+    max-width: 100%;
+    /* Ensure the counter image is responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    vertical-align: middle;
+    /* Align image nicely with text if it were in a line */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        padding-left: 15px;
+        /* Add some horizontal padding */
+        padding-right: 15px;
+    }
+
+    .footer-bottom .copyright {
+        min-width: unset;
+        /* Reset min-width when stacking */
+        width: 100%;
+        /* Take full width when stacked */
+        margin-bottom: 10px;
+        /* Add space between stacked items */
+    }
+
+    .footer-bottom .copyright:last-child {
+        margin-bottom: 0;
+        /* No margin after the last item */
+    }
+}

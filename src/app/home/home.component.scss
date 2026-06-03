@@ -1,0 +1,1337 @@
+.hero-slider {
+    display: flex;
+    width: 400%;
+    animation: slideHero 20s infinite;
+}
+
+
+
+@keyframes slideHero {
+    0%, 20% {
+        transform: translateX(0);
+    }
+    25%, 45% {
+        transform: translateX(-100vw);
+    }
+    50%, 70% {
+        transform: translateX(-200vw);
+    }
+    75%, 95% {
+        transform: translateX(-300vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* Adjusted height (e.g., 500px instead of 100vh) */
+.hero-slide {
+    width: 100vw;
+    // height: 567px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+
+@keyframes slideHero {
+    0%, 20% {
+        transform: translateX(0);
+    }
+    25%, 45% {
+        transform: translateX(-100vw);
+    }
+    50%, 70% {
+        transform: translateX(-200vw);
+    }
+    75%, 95% {
+        transform: translateX(-300vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.left-badges {
+    position: absolute;
+    top: 57%;
+    left: 13px;
+    transform: translateY(-50%);
+    background: rgb(96 6 15 / 75%);
+    padding: 16px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 41px;
+    z-index: 10;
+    width: 117px;
+}
+
+.left-badges .badge {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.left-badges .badge img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.slide-up-text {
+    color: white;
+    font-family: system-ui;
+    font-size: 22px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1.2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* New fade-up animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply fade-up animation to sub-title, title, and button */
+.hero__content-wrap .sub-title,
+.hero__content-wrap .title,
+.hero__content-wrap .con_button {
+    opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.hero__content-wrap .sub-title {
+    animation-delay: 0.3s;
+}
+
+.hero__content-wrap .title {
+    animation-delay: 0.5s;
+}
+
+.hero__content-wrap .con_button {
+    animation-delay: 0.7s;
+}
+
+.con_button {
+    background: rgb(96 6 15);
+    color: white;
+    padding: 8px 22px 8px 34px;
+}
+
+.con_button:hover {
+    background-color: #006d6a;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .left-badges {
+        display: none;
+    }
+}
+
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1 1 500px;
+    border-left: 3px solid #60060f;
+    padding-left: 20px;
+}
+
+.about-text h2 {
+    color: #60060f;
+    margin-bottom: 15px;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    text-align: justify;
+    padding: 15px;
+    word-spacing: -1px;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.about-image {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: none;
+    margin-top: 58px;
+    /* Reset animation when not visible */
+}
+
+.about-image img:hover {
+    transform: scale(1.1);
+}
+
+.intro-title {
+    text-align: center;
+    color: #60060f;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.intro-subtitle {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+/* Animation classes triggered when .is-visible is added */
+.about-section.is-visible {
+    animation: bounceIn 1s ease-in forwards;
+    animation-delay: 0.2s;
+}
+
+.about-section.is-visible .about-text h2 {
+    animation: rotateIn 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.about-section.is-visible .about-text p {
+    animation: pulse 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.about-section.is-visible .about-image img {
+    animation: flipIn 1.2s ease-in forwards;
+    animation-delay: 0.8s;
+}
+
+.intro-title.is-visible {
+    animation: bounceInDown 0.8s ease-in forwards;
+    animation-delay: 0.1s;
+}
+
+.intro-subtitle.is-visible {
+    animation: swing 0.9s ease-in forwards;
+    animation-delay: 0.3s;
+}
+
+/* Animation keyframes */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    60% {
+        opacity: 0.7;
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-45deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes flipIn {
+    from {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+@keyframes swing {
+    20% {
+        opacity: 0.2;
+        transform: rotate(15deg);
+    }
+
+    40% {
+        opacity: 0.4;
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        opacity: 0.6;
+        transform: rotate(5deg);
+    }
+
+    80% {
+        opacity: 0.8;
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        border-left: none;
+        border-top: 3px solid #60060f;
+        padding-top: 20px;
+        padding-left: 0;
+    }
+}
+
+.vj-course-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* min-height: 100vh; */
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+/* Left Image Section */
+.vj-course-left {
+    width: 100%;
+    max-height: 100vh;
+}
+
+.vj-course-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+/* Right Section with Background */
+.vj-course-right {
+    width: 100%;
+    background-image: url('/assets/img/logo/background.png');
+    /* replace with correct path */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.vj-course-overlay {
+    background-color: rgb(10 76 144 / 0%);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.vj-course-overlay h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.vj-course-box {
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.vj-course-box:nth-child(1) {
+    --order: 1;
+}
+
+.vj-course-box:nth-child(2) {
+    --order: 2;
+}
+
+.vj-course-box:nth-child(3) {
+    --order: 3;
+}
+
+.vj-tag {
+    background-color: #a0f4a0;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.vj-course-btn {
+    display: inline-block;
+    background-color: #006d6a;
+    color: white;
+    padding: 11px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    animation: none;
+    /* Reset animation when not visible */
+}
+
+.vj-course-btn:hover {
+    background-color: #60060f;
+    width: 262px;
+}
+
+/* Animation classes triggered when .is-visible is added */
+.vj-course-wrapper.is-visible {
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.vj-course-wrapper.is-visible .vj-course-left img {
+    animation: zoomIn 1.2s ease-in forwards;
+}
+
+.vj-course-wrapper.is-visible .vj-course-overlay h2 {
+    animation: fadeInDown 0.8s ease-in forwards;
+}
+
+.vj-course-wrapper.is-visible .vj-course-box {
+    animation: fadeInUp 1s ease-in forwards;
+    animation-delay: calc(0.2s * var(--order));
+}
+
+.vj-course-wrapper.is-visible .vj-course-btn {
+    animation: slideInLeft 0.8s ease-in forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+
+    .vj-course-left,
+    .vj-course-right {
+        width: 50%;
+    }
+}
+
+.vj-gallery {
+    padding: 2rem;
+}
+
+.vj-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Exactly 3 columns */
+    gap: 1rem;
+}
+
+.vj-gallery-item {
+    display: block;
+    text-decoration: none;
+}
+
+.flip-box {
+    perspective: 1000px;
+    width: 100%;
+    height: 300px;
+    /* Increased height from 200px to 300px */
+}
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    z-index: 2;
+}
+
+.flip-box-back {
+    transform: rotateY(180deg);
+    filter: brightness(70%);
+    /* Slightly darker for back side to distinguish */
+}
+
+.flip-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .vj-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on smaller screens */
+    }
+
+    .flip-box {
+        height: 250px;
+        /* Slightly smaller height for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .vj-gallery-grid {
+        grid-template-columns: 1fr;
+        /* 1 column on very small screens */
+    }
+
+    .flip-box {
+        height: 200px;
+        /* Smaller height for small screens */
+    }
+}
+
+.vj-contact-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f1f1e9;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.vj-contact-form-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.vj-contact-form-box .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.vj-contact-form-box .content {
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.vj-contact-form-box .form-group {
+    margin-bottom: 20px;
+}
+
+.vj-contact-form-box .input_title {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.vj-contact-form-box .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.vj-contact-form-box textarea.form-control {
+    height: 100px;
+}
+
+.vj-contact-form-box .thm-btn {
+    background-color: #60060f;
+    color: white;
+    border: none;
+    padding: 10px 19px 13px 50px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.vj-contact-form-box .thm-btn:hover {
+    background-color: #006d6a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vj-contact-form-box {
+        padding: 20px;
+    }
+
+    .vj-contact-form-box .title {
+        font-size: 20px;
+    }
+
+    .vj-contact-form-box .content {
+        font-size: 14px;
+    }
+}
+
+
+
+/* For tablets and smaller */
+@media (max-width: 991px) {
+    .hero__content-wrap {
+        padding-top: 40px;
+    }
+
+    .section-title .title {
+        font-size: 28px;
+    }
+
+    .section-title .sub-title {
+        font-size: 16px;
+    }
+
+    .slide-up-text {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .con_button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .left-badges {
+        top: 154px;
+        left: 5px;
+        transform: scale(0.8);
+    }
+}
+
+/* For phones */
+@media (max-width: 767px) {
+    .hero__content-wrap {
+        padding-top: 30px;
+    }
+
+    .section-title .title {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .section-title .sub-title {
+        font-size: 14px;
+    }
+
+    .slide-up-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .con_button {
+        font-size: 13px;
+        padding: 8px 18px;
+    }
+
+    .left-badges {
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        margin-top: 10px;
+        transform: scale(0.9);
+    }
+
+    .left-badges .badge {
+        margin: 0 5px;
+    }
+
+    .hero-slide {
+        background-position: center;
+        background-size: cover;
+        height: 178px;
+        margin-top: 148px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .section-title .title {
+        font-size: 20px;
+    }
+
+    .slide-up-text {
+        font-size: 13px;
+    }
+
+    .con_button {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+}
+
+/* === CTA Section Animations === */
+.cta {
+    /* Initially hide the section or its animated elements */
+    /* We'll use JavaScript to add a class that triggers animations */
+    padding: 40px 0;
+    /* Match original padding */
+}
+
+/* Initially hide animated text content */
+.section-title--md .sub-title,
+.section-title--md .title,
+.section-title--md p,
+.cta h4.title,
+.cta p {
+    opacity: 0;
+    transform: translateY(30px);
+    /* Start below */
+    /* Remove animation properties here */
+}
+
+/* Initially hide animated image */
+.cta-image img {
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+    /* Start right and scaled down */
+    /* Remove animation properties here */
+}
+
+/* These classes will be added by JavaScript when the section is in view */
+.cta.is-in-view .section-title--md .sub-title,
+.cta.is-in-view .section-title--md .title,
+.cta.is-in-view .section-title--md p,
+.cta.is-in-view h4.title,
+.cta.is-in-view p {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.cta.is-in-view .section-title--md .sub-title {
+    animation-delay: 0.2s;
+}
+
+.cta.is-in-view .section-title--md .title {
+    animation-delay: 0.4s;
+}
+
+.cta.is-in-view .section-title--md p {
+    animation-delay: 0.6s;
+}
+
+.cta.is-in-view h4.title {
+    animation-delay: 0.8s;
+}
+
+.cta.is-in-view p:not(.section-title--md p) {
+    animation-delay: 1s;
+}
+
+.cta.is-in-view p[style] {
+    animation-delay: 1.2s;
+}
+
+.cta.is-in-view .cta-image img {
+    animation: slideInBounce 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+
+/* FadeInUp animation for text */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SlideInBounce animation for image */
+@keyframes slideInBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.9);
+    }
+
+    60% {
+        opacity: 0.7;
+        transform: translateX(-10px) scale(1.05);
+        /* Slight bounce */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* === Mobile View Specific Styles (Applies to screens up to 575.98px) === */
+@media (max-width: 575.98px) {
+    .cta {
+        padding: 20px 0;
+        /* Reduced padding for mobile */
+    }
+
+    /* Faster animations for mobile when in view */
+    .cta.is-in-view .section-title--md .sub-title,
+    .cta.is-in-view .section-title--md .title,
+    .cta.is-in-view .section-title--md p,
+    .cta.is-in-view h4.title,
+    .cta.is-in-view p {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Adjust font sizes */
+    .section-title--md .title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .cta h4.title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .cta p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .cta p[style] {
+        font-size: 13px;
+        line-height: 17px;
+    }
+
+    /* Image animation */
+    .cta.is-in-view .cta-image img {
+        width: 100%;
+        max-height: 250px;
+        /* Prevent oversized images */
+        object-fit: contain;
+        animation: slideInBounce 0.8s ease-out forwards;
+        animation-delay: 0.3s;
+    }
+
+    /* Layout adjustments */
+    .cta-image {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .row.align-items-center {
+        flex-direction: column;
+        /* Stack vertically */
+    }
+
+    .col-xl-6,
+    .col-xl-5,
+    .offset-xl-1 {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        padding: 0 10px;
+    }
+}
+
+/* Ensure images are responsive */
+.cta-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Section Animation */
+.awards-showcase {
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.awards-showcase.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: sectionSlideIn 1s ease-out forwards;
+}
+
+/* Keyframes for Section Animation */
+@keyframes sectionSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section Heading */
+.section-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #60060f;
+    font-weight: bold;
+}
+
+/* Awards Grid */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.award-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.award-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.8s ease;
+}
+
+.award-caption {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #006d6a;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    font-weight: 600;
+}
+
+/* Animation for Images and Captions */
+.award-item.visible img,
+.award-item.visible .award-caption {
+    opacity: 1;
+    transform: translateX(0);
+    /* For images */
+}
+
+/* Staggered Animation Delays */
+.award-item:nth-child(1).visible img,
+.award-item:nth-child(1).visible .award-caption {
+    animation-delay: 0.4s;
+}
+
+.award-item:nth-child(2).visible img,
+.award-item:nth-child(2).visible .award-caption {
+    animation-delay: 0.5s;
+}
+
+.award-item:nth-child(3).visible img,
+.award-item:nth-child(3).visible .award-caption {
+    animation-delay: 0.6s;
+}
+
+.award-item:nth-child(4).visible img,
+.award-item:nth-child(4).visible .award-caption {
+    animation-delay: 0.7s;
+}
+
+/* Keyframes for Image and Caption Animation */
+@keyframes fadeInSlideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hover Effect */
+.award-item img:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #60060f;
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+    .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .award-caption {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .award-caption {
+        font-size: 1rem;
+    }
+
+    .award-item img {
+        height: 150px;
+    }
+}
+
+/* Section Styling */
+.image-showcase-section {
+    padding: 60px 0;
+    /* Overall section padding */
+    background-color: #fff;
+    box-shadow: 0 6px 31px rgb(96 6 15);
+    margin-top: 50px;
+    /* Example margin for separation */
+    margin-bottom: 50px;
+}
+
+/* Gallery Header */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-header h2 {
+    font-size: 2.5em;
+    color: #60060f;
+    margin-bottom: 10px;
+}
+
+.gallery-header p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 0;
+}
+
+/* Image Grid Row (Flex Container) */
+.image-grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows items to wrap to the next line */
+    gap: 20px;
+    /* Space between grid items */
+    justify-content: center;
+    /* Center items if they don't fill the last row */
+}
+
+.achiv {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows items to wrap to the next line */
+    gap: 20px;
+    /* Space between grid items */
+    justify-content: center;
+    /* Center items if they don't fill the last row */
+}
+
+/* Individual Image Grid Item */
+.image-grid-item {
+    /* Base width for 4 items per row on larger screens */
+    /* calc(25% - (3/4 * gap)) for 4 items per row with 20px gap */
+    flex: 0 0 calc(25% - 15px);
+    /* (4 * 20px gap = 80px total gap, 3 gaps = 60px / 4 items = 15px per item deduction) */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Ensures image corners are rounded */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animation transition */
+    text-align: center;
+    /* Center the heading below the image */
+}
+
+/* Animation on Hover */
+.image-grid-item:hover {
+    transform: translateY(-5px);
+    /* Lifts the item slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* More prominent shadow */
+}
+
+.image-link {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    /* Make the whole item clickable */
+}
+
+.image-wrapper {
+    width: 100%;
+    /* Maintain aspect ratio (e.g., 3:4 aspect ratio for 400x300 images) */
+    padding-bottom: 75%;
+    /* (height / width) * 100% -> (300/400)*100 = 75% */
+    position: relative;
+    overflow: hidden;
+    /* Hide anything outside image area */
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image covers the area without distortion */
+    border-radius: 8px 8px 0 0;
+    /* Match parent border radius */
+}
+
+.image-grid-item h3 {
+    font-size: 1.1em;
+    margin: 15px 10px;
+    /* Spacing for the title */
+    font-weight: 600;
+    white-space: nowrap;
+    /* Prevent title from wrapping */
+    overflow: hidden;
+    /* Hide overflow text */
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflow text */
+}
+
+/* Responsive Adjustments */
+
+/* For Tablets (up to 992px) - 3 items per row */
+@media (max-width: 992px) {
+    .image-grid-item {
+        /* calc(33.333% - (2/3 * gap)) for 3 items per row with 20px gap */
+        flex: 0 0 calc(33.333% - 13.333px);
+    }
+}
+
+/* For Smaller Tablets & Large Phones (up to 768px) - 2 items per row */
+@media (max-width: 768px) {
+    .image-grid-item {
+        /* calc(50% - (1/2 * gap)) for 2 items per row with 20px gap */
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .gallery-header h2 {
+        font-size: 2em;
+    }
+}
+
+/* For Mobile Phones (up to 480px) - 1 item per row */
+@media (max-width: 480px) {
+    .image-grid-item {
+        flex: 0 0 100%;
+        /* Full width for single item */
+    }
+
+    .gallery-header h2 {
+        font-size: 1.8em;
+    }
+
+    .image-showcase-section {
+        padding: 30px 0;
+    }
+}
+

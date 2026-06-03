@@ -1,0 +1,78 @@
+.breadcrumb__content {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.breadcrumb__title {
+    animation-delay: 0.2s;
+}
+
+.breadcrumb__desc {
+    animation-delay: 0.4s;
+    font-family: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add this to your existing CSS file */
+
+.contact_iconbox {
+    position: relative; /* Essential for positioning the absolute pseudo-elements */
+    overflow: hidden; /* Hides the pseudo-elements when they are outside the card boundaries */
+    /* Optional: Add a subtle transition for the card itself, e.g., for box-shadow or slight scale */
+    transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+    z-index: 1; /* Ensures the card content (text, icon) remains above the sliding background */
+    /* Ensure the card has a background color if it doesn't already, so the shadow is visible on top */
+    background-color: #FFFFFF; /* Example: White background for cards, adjust if needed */
+}
+
+/* Pseudo-elements for the sliding background color shadow */
+.contact_iconbox::before,
+.contact_iconbox::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%; /* Each pseudo-element covers half the card's width */
+    background-color: rgb(154 47 57 / 19%); /* Adjust color and opacity for your desired "shadow" effect. Use a subtle transparent black for a shadow, or a lighter color for a highlight. */
+    transition: transform 0.4s ease-out; /* Smooth transition for the sliding animation */
+    z-index: -1; /* Place behind the actual content of the card */
+}
+
+/* ::before for the left side slide */
+.contact_iconbox::before {
+    left: 0;
+    transform: translateX(-100%); /* Start completely off-screen to the left */
+}
+
+/* ::after for the right side slide */
+.contact_iconbox::after {
+    right: 0;
+    transform: translateX(100%); /* Start completely off-screen to the right */
+}
+
+/* Hover effect: Slide the pseudo-elements into view */
+.contact_iconbox:hover::before {
+    transform: translateX(0%); /* Slides from left to cover the left half */
+}
+
+.contact_iconbox:hover::after {
+    transform: translateX(0%); /* Slides from right to cover the right half */
+}
+
+/* Optional: Enhance the card's appearance on hover */
+.contact_iconbox:hover {
+    box-shadow: 0px 15px 40px rgb(154 47 57 / 19%); /* Adds a deeper shadow to the whole card on hover */
+    /* transform: translateY(-5px); Optional: Make the card lift slightly */
+}

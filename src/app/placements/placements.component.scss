@@ -1,0 +1,437 @@
+.breadcrumb__content {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.breadcrumb__title {
+    animation-delay: 0.2s;
+}
+
+.breadcrumb__desc {
+    animation-delay: 0.4s;
+    font-family: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.placement-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.placement-section .title {
+    font-size: 2rem;
+    color: #60060f;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.placement-section .description {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.placement-section .subtitle {
+    font-size: 1.5rem;
+    color: #60060f;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.placement-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+}
+
+.placement-card {
+    background-color: #cd677147;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #60060f;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.placement-card:hover {
+    background-color: #006d6a3b;
+}
+
+.gallery-section {
+    padding: 0px 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 images per row */
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 7px 7px 12px #60060f;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive for tablets */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 images per row */
+    }
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* 1 image per row */
+    }
+}
+
+/* Keep the keyframes definitions as they are */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flipIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+/* Placement Section: Apply animation only when .is-visible is added */
+.placement-section {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0;
+    /* Start hidden */
+}
+
+.placement-section.is-visible {
+    animation: fadeSlideUp 1s ease-out both;
+}
+
+/* Placement Cards: Apply animation only when .is-visible is added */
+.placement-card {
+    background-color: #cd677147;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #60060f;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    /* Start hidden */
+}
+
+.placement-card.is-visible {
+    animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+/* Sequential delays for placement cards */
+.placement-card:nth-child(1).is-visible {
+    animation-delay: 0.2s;
+}
+
+.placement-card:nth-child(2).is-visible {
+    animation-delay: 0.3s;
+}
+
+.placement-card:nth-child(3).is-visible {
+    animation-delay: 0.4s;
+}
+
+.placement-card:nth-child(4).is-visible {
+    animation-delay: 0.5s;
+}
+
+.placement-card:nth-child(5).is-visible {
+    animation-delay: 0.6s;
+}
+
+.placement-card:nth-child(6).is-visible {
+    animation-delay: 0.7s;
+}
+
+.placement-card:nth-child(7).is-visible {
+    animation-delay: 0.8s;
+}
+
+/* Gallery Cards: Apply animation only when .is-visible is added */
+.gallery-card {
+    opacity: 0;
+    /* Start hidden */
+    transform-style: preserve-3d;
+}
+
+.gallery-card.is-visible {
+    animation: flipIn 0.8s ease-out forwards;
+}
+
+/* Sequential delays for gallery cards */
+.gallery-card:nth-child(1).is-visible {
+    animation-delay: 0.2s;
+}
+
+.gallery-card:nth-child(2).is-visible {
+    animation-delay: 0.3s;
+}
+
+.gallery-card:nth-child(3).is-visible {
+    animation-delay: 0.4s;
+}
+
+.gallery-card:nth-child(4).is-visible {
+    animation-delay: 0.5s;
+}
+
+.gallery-card:nth-child(5).is-visible {
+    animation-delay: 0.6s;
+}
+
+.gallery-card:nth-child(6).is-visible {
+    animation-delay: 0.7s;
+}
+
+.gallery-card:nth-child(7).is-visible {
+    animation-delay: 0.8s;
+}
+
+.gallery-card:nth-child(8).is-visible {
+    animation-delay: 0.9s;
+}
+
+.gallery-card:nth-child(9).is-visible {
+    animation-delay: 1.0s;
+}
+
+.gallery-card:nth-child(10).is-visible {
+    animation-delay: 1.1s;
+}
+
+.gallery-card:nth-child(11).is-visible {
+    animation-delay: 1.2s;
+}
+
+.gallery-card:nth-child(12).is-visible {
+    animation-delay: 1.3s;
+}
+
+.gallery-card:nth-child(13).is-visible {
+    animation-delay: 1.4s;
+}
+
+/* Rest of your CSS remains unchanged */
+
+.photo-display-section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.photo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.photo-title {
+    text-align: center;
+    font-size: 28px;
+    color: #60060f;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.photo-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.photo-layout a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.photo-layout img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-layout img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .photo-title {
+        font-size: 24px;
+    }
+
+    .photo-layout {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-title {
+        font-size: 20px;
+    }
+
+    .photo-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+.infinite-scroll {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    background: #fff;
+}
+
+.scroll-track {
+    display: flex;
+    animation: scrollLoop 25s linear infinite;
+}
+
+.scroll-track img {
+    width: 80vw;
+    max-width: 300px;
+    height: 82px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+/* Animation */
+@keyframes scrollLoop {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive tweak */
+@media (min-width: 768px) {
+    .scroll-track img {
+        width: 200px;
+    }
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 61px;
+    margin-top: -66px;
+}
+
+.image-grid-item {
+    flex: 1 1 calc(100% - 20px);
+    max-width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.image-grid-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.image-grid-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.image-grid-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.image-grid-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.image-grid-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* ...add more delays as needed */
+
+.image-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .image-grid-item {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

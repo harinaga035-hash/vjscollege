@@ -1,0 +1,203 @@
+.breadcrumb__content {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.breadcrumb__title {
+    animation-delay: 0.2s;
+}
+
+.breadcrumb__desc {
+    animation-delay: 0.4s;
+    font-family: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bus-routes {
+    padding-top: 37px;
+    background-color: #f8f8f8; // Light background for the section
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px; // Add horizontal padding for smaller screens
+
+        .title {
+            text-align: center;
+            margin-bottom: 3rem; // More space below title
+            font-size: 2.8rem; // Slightly larger title
+            color: #60060f; // Your brand color
+            position: relative;
+            padding-bottom: 15px; // Space for underline effect
+
+            &::after {
+                // Simple underline for the title
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                width: 80px; // Width of the underline
+                height: 4px; // Thickness of the underline
+                background-color: #60060f;
+                border-radius: 2px;
+            }
+        }
+
+        .bus-card {
+            display: flex;
+            align-items: center; // Vertically align image and content
+            margin-bottom: 3rem; // More space between cards
+            padding: 1.5rem; // Slightly more padding inside the card
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); // Stronger, softer shadow
+            border-radius: 12px; // More rounded corners
+            overflow: hidden; // Ensures nothing spills out
+            position: relative; // For potential pseudo-elements or absolute positioning
+
+            // Animation properties
+            opacity: 0;
+            transform: translateX(var(--initial-translate, 0)); // Dynamic start position
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; // Smoother transition
+
+            // Styles for odd/even cards to slide from different directions
+            &:nth-child(odd) {
+                --initial-translate: -100px; // Start from left for odd cards
+                /* You can also define the animation for odd/even directly here if you don't use JS for dynamic classes */
+            }
+
+            &:nth-child(even) {
+                --initial-translate: 100px; // Start from right for even cards
+                /* You can also define the animation for odd/even directly here if you don't use JS for dynamic classes */
+            }
+
+            // Class added by Intersection Observer when card is visible
+            &.is-visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            img {
+                width: 250px; // Slightly larger image
+                min-width: 200px; // Prevent image from becoming too small on smaller desktop views
+                height: 180px; // Fixed height for consistency
+                object-fit: cover; // Ensures image covers the area without distortion
+                border-radius: 8px;
+                margin-right: 1.5rem; // More space between image and content
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); // Shadow for the image
+            }
+
+            .bus-content {
+                flex: 1; // Allows content to take remaining space
+
+                h3 {
+                    margin: 0 0 0.7rem; // More space below heading
+                    font-size: 1.8rem; // Larger heading
+                    color: #60060f;
+                    font-weight: 700; // Bolder heading
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 1.1rem; // Slightly larger text
+                    line-height: 1.6; // Better readability
+                    color: #555;
+                }
+            }
+
+            // Reverse layout for even cards (image on right, text on left)
+            &:nth-child(even) {
+                flex-direction: row-reverse; // Reverse the order for even cards
+
+                img {
+                    margin-right: 0;
+                    margin-left: 1.5rem; // Adjust margin for reversed layout
+                }
+            }
+        }
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .bus-routes .container .bus-card {
+        padding: 1.2rem;
+        flex-direction: column; // Stack image and content vertically
+        text-align: center; // Center text
+
+        &:nth-child(even) {
+            // Reset flex-direction for even cards on smaller screens
+            flex-direction: column;
+        }
+
+        img {
+            // width: 100%; // Full width image
+            max-width: 300px; // Max width for image to not be too large
+            height: auto; // Auto height for image on mobile
+            margin-right: 0; // Remove horizontal margin
+            margin-bottom: 1.5rem; // Add vertical margin below image
+            margin-left: 0; // Remove left margin for even cards
+        }
+
+        .bus-content h3 {
+            font-size: 1.6rem;
+        }
+
+        .bus-content p {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .bus-routes .container .title {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .bus-routes .container .bus-card {
+        margin-bottom: 2rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bus-routes .container .title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        padding-bottom: 10px;
+
+        &::after {
+            width: 60px;
+            height: 3px;
+        }
+    }
+
+    .bus-routes .container .bus-card {
+        padding: 0.8rem;
+    }
+
+    .bus-routes .container .bus-card img {
+        margin-bottom: 1rem;
+    }
+
+    .bus-routes .container .bus-card .bus-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .bus-routes .container .bus-card .bus-content p {
+        font-size: 0.9rem;
+    }
+}

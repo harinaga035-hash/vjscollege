@@ -1,0 +1,27 @@
+<aside class="vjs-sticky-actions" aria-label="Admissions actions">
+  <button type="button" class="vjs-sticky-actions__btn vjs-sticky-actions__btn--apply" aria-label="Apply Now"
+    (click)="openForm('Enquiry')">
+    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="vjs-sticky-actions__btn vjs-sticky-actions__btn--call" aria-label="Call Now"
+    (click)="openForm('Call')">
+    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="vjs-sticky-actions__btn vjs-sticky-actions__btn--brochure" aria-label="Download Brochure"
+    (click)="openForm('Brochure')">
+    <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+  </button>
+</aside>
+
+<ng-container *ngIf="state$ | async as state">
+  <section class="vjs-admission-modal" [class.vjs-admission-modal--open]="state.open" role="dialog" aria-modal="true"
+    aria-label="Admissions enquiry" (click)="backdropClick($event, state)">
+    <div class="vjs-admission-modal__panel">
+      <button type="button" class="vjs-admission-modal__close" aria-label="Close enquiry form"
+        (click)="closeForm()">x</button>
+      <app-enquiry-form [leadType]="state.mode" [course]="state.course || config.defaultCourse"
+        (completed)="onCompleted($event)">
+      </app-enquiry-form>
+    </div>
+  </section>
+</ng-container>
