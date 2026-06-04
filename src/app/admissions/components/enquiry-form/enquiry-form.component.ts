@@ -90,13 +90,22 @@ export class EnquiryFormComponent implements OnChanges {
       this.completed.emit(lead);
 
       if (this.leadType === 'Brochure') {
-        this.actions.downloadBrochure(lead.course || this.config.defaultCourse);
+
+        this.actions.downloadBrochure(
+          lead.course || this.config.defaultCourse
+        );
+
       } else if (this.leadType === 'Call') {
 
         window.location.href = `tel:${this.config.primaryPhone}`;
-      }
-      else {
-        this.actions.openWhatsApp(lead.studentName || '', lead.course || this.config.defaultCourse);
+
+      } else if (this.leadType === 'WhatsApp') {
+
+        this.actions.openWhatsApp(
+          lead.studentName || '',
+          lead.course || this.config.defaultCourse
+        );
+
       }
 
       this.form.reset({
