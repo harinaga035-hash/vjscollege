@@ -115,7 +115,11 @@ export class EnquiryFormComponent implements OnChanges {
     return {
       leadId: this.crm.buildLeadId(value.mobile),
       date: now.toISOString().slice(0, 10),
-      timestamp: now.toLocaleTimeString('en-IN', { hour12: false }),
+      timestamp: now.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }),
       source: this.resolveLeadSource(),
       studentName: value.studentName.trim(),
       mobile: value.mobile.trim(),
