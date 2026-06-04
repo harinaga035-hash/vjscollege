@@ -33,7 +33,7 @@ export class LeadCrmService {
     private http: HttpClient,
     @Inject(ADMISSIONS_CONFIG_TOKEN) private config: AdmissionsConfig,
     @Inject(PLATFORM_ID) private platformId: object
-  ) {}
+  ) { }
 
   async submitLead(lead: LeadPayload, options: LeadSubmitOptions = {}): Promise<LeadSubmissionResult> {
     console.log('[VJS Lead CRM] API Request', lead);
@@ -82,6 +82,14 @@ export class LeadCrmService {
     const cleanMobile = mobile.replace(/\D/g, '').slice(-10);
     return cleanMobile ? `${prefix}-${Date.now()}-${cleanMobile}` : `${prefix}-${Date.now()}`;
   }
+
+  // buildLeadId(): string {
+  //   const nextId = Number(localStorage.getItem('vjs_lead_counter') || '0') + 1;
+
+  //   localStorage.setItem('vjs_lead_counter', String(nextId));
+
+  //   return String(nextId);
+  // }
 
   getLatestLeadDetails(): LatestLeadDetails | null {
     if (!this.isBrowser()) {
