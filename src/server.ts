@@ -119,7 +119,10 @@ app.post('/api/admissions-leads', async (req, res) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(req.body)
+      body: JSON.stringify({
+        ...req.body,
+        source: lead.source
+      })
     });
 
     const text = await response.text();

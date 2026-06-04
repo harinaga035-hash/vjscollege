@@ -18,7 +18,12 @@ module.exports = async function handler(req, res) {
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body || {})
+      body: JSON.stringify({
+        ...req.body,
+        source: req.body?.source === 'Apply'
+          ? 'Call Back'
+          : req.body?.source
+      })
     });
 
     if (!response.ok) {
