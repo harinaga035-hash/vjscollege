@@ -86,7 +86,7 @@ function normalizeLeadSource(source: string, leadType: string): string {
   if (source === 'Apply' || leadType === 'Enquiry') {
     return 'Call Back';
   }
-  return ['Apply', 'Call', 'WhatsApp', 'Brochure'].includes(source) ? source : 'Apply';
+  return ['Call Back', 'Call', 'WhatsApp', 'Brochure'].includes(source) ? source : 'Apply';
 }
 
 /**
