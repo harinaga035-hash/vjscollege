@@ -4,7 +4,7 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const webhookUrl = "https://script.google.com/macros/s/AKfycbxcW5ELgqnU4-oFuySXqoYzDSW4OgpRL6bBQCWg4E92WxTCHTRiEJW7Up2HPD4_OPsq/exec";
+  const webhookUrl = "https://script.google.com/macros/s/AKfycbyc3BYDciEBJdIcsFydmNxL2rDAJzU7YFFLLc7XGU0hHAjCABlPMBuHZOTxwSo2ddp0/exec";
   if (!webhookUrl) {
     console.error('[Admissions CRM] Missing ADMISSIONS_CRM_WEBHOOK_URL.');
     res.status(500).json({
