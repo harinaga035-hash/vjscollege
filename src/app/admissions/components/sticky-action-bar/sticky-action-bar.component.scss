@@ -29,6 +29,11 @@
   transform: translateY(-2px);
 }
 
+.vjs-sticky-actions__btn--whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
 .vjs-sticky-actions__btn:focus-visible {
   outline: 3px solid rgba(15, 122, 64, .3);
   outline-offset: 3px;
