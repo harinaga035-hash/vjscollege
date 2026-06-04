@@ -80,6 +80,7 @@ export class EnquiryFormComponent implements OnChanges {
 
     this.submitting = true;
     const lead = this.createLeadPayload();
+    console.log('LEAD TYPE:', this.leadType);
     console.log('[VJS Lead Form] Lead Payload', lead);
     const result = await this.crm.submitLead(lead);
     console.log('[VJS Lead Form] API Response', result);
