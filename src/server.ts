@@ -48,7 +48,13 @@ function validateLeadPayload(body: Record<string, unknown>): StoredAdmissionLead
   const mobile = normalizeMobile(body['mobile']);
   const course = normalizeText(body['course']);
   const date = normalizeText(body['date']) || new Date().toISOString().slice(0, 10);
-  const time = normalizeText(body['timestamp']) || new Date().toLocaleTimeString('en-IN', { hour12: false });
+  const time =
+    normalizeText(body['timestamp']) ||
+    new Date().toLocaleTimeString('en-IN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
   const source = normalizeLeadSource(normalizeText(body['source']), leadType);
   const leadId = normalizeText(body['leadId']) || `VJS-${Date.now()}${mobile ? `-${mobile}` : ''}`;
   const pageUrl = normalizeText(body['pageUrl']);
