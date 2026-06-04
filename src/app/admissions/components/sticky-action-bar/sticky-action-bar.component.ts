@@ -72,7 +72,11 @@ export class StickyActionBarComponent implements AfterViewInit {
     return {
       leadId: this.crm.buildLeadId(latestLead?.mobile || '', 'CALL'),
       date: now.toISOString().slice(0, 10),
-      timestamp: now.toLocaleTimeString('en-IN', { hour12: false }),
+      timestamp: now.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }),
       source: 'Call',
       studentName: latestLead?.studentName || '',
       mobile: latestLead?.mobile || '',

@@ -17,7 +17,7 @@ export class ExistingWhatsappService {
     private tracking: LeadTrackingService,
     private zone: NgZone,
     @Inject(ADMISSIONS_CONFIG_TOKEN) private config: AdmissionsConfig
-  ) {}
+  ) { }
 
   enhanceExistingButton(): void {
     if (!isPlatformBrowser(this.platformId) || this.cleanup) {
@@ -56,7 +56,11 @@ export class ExistingWhatsappService {
     const lead = {
       leadId: this.crm.buildLeadId(latestLead?.mobile || '', 'WA'),
       date: now.toISOString().slice(0, 10),
-      timestamp: now.toLocaleTimeString('en-IN', { hour12: false }),
+      timestamp: now.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }),
       source: 'WhatsApp',
       studentName: latestLead?.studentName || '',
       mobile: latestLead?.mobile || '',

@@ -9,7 +9,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const crmWebhookUrl =
-  'https://script.google.com/macros/s/AKfycbw0fFZHvWmxkpf7vY0g-P55j7duKrDm-O2-lCHcpCn7_pZRAaGB53N7LNOWkq7IG7er/exec';
+  'https://script.google.com/macros/s/AKfycbxcW5ELgqnU4-oFuySXqoYzDSW4OgpRL6bBQCWg4E92WxTCHTRiEJW7Up2HPD4_OPsq/exec';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
