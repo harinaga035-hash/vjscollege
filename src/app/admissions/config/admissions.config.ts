@@ -22,16 +22,14 @@ export const ADMISSIONS_CONFIG: AdmissionsConfig = {
   callPhone: '9951780088',
   email: 'vjsedu@gmail.com',
   defaultCourse: 'B. Pharmacy',
-  courses: ['B. Pharmacy', 'Pharm.D', 'M.Pharmacy', 'D.Pharmacy', 'Other'],
+  courses: ['B. Pharmacy', 'Pharm.D', 'M.Pharmacy'],
   counsellor: 'Admissions Team',
   crmEndpoint: '/api/admissions-leads',
   whatsappNumber: '919951780088',
   brochures: [
     { course: 'B. Pharmacy', label: 'B. Pharmacy Brochure', url: '/assets/brochures/brochure-placeholder.pdf' },
     { course: 'Pharm.D', label: 'Pharm.D Brochure', url: '/assets/brochures/brochure-placeholder.pdf' },
-    { course: 'M.Pharmacy', label: 'M.Pharmacy Brochure', url: '/assets/brochures/brochure-placeholder.pdf' },
-    { course: 'D.Pharmacy', label: 'D.Pharmacy Brochure', url: '/assets/brochures/brochure-placeholder.pdf' },
-    { course: 'Other', label: 'Course Brochure', url: '/assets/brochures/brochure-placeholder.pdf' }
+    { course: 'M.Pharmacy', label: 'M.Pharmacy Brochure', url: '/assets/brochures/brochure-placeholder.pdf' }
   ],
   retryAttempts: 2,
   retryDelayMs: 900

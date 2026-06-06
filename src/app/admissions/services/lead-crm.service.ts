@@ -62,7 +62,7 @@ export class LeadCrmService {
         }),
         catchError((error) => {
           this.queuePendingLead(lead);
-          this.logLead(lead, 'Google Sheet CRM push failed after retries. Lead queued in browser storage.', error);
+          this.logLead(lead, 'Lead queued in browser storage.', error);
           return of(null);
         })
       )
@@ -70,12 +70,12 @@ export class LeadCrmService {
 
     if (!result) {
       console.log('[VJS Lead CRM] API Response failed/queued', lead);
-      return { ok: false, queued: true, message: 'Lead saved temporarily. We will retry CRM storage.' };
+      return { ok: false, queued: true, message: 'Lead saved temporarily.' };
     }
 
     console.log('[VJS Lead CRM] API Response', result);
     this.flushPendingLeads();
-    return { ok: true, queued: false, message: 'Lead saved to admissions CRM.' };
+    return { ok: true, queued: false, message: 'Your inquiry is submitted 👍 We will call you shortly !' };
   }
 
   buildLeadId(mobile = '', prefix = 'VJS'): string {
