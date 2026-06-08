@@ -84,7 +84,7 @@ Existing WhatsApp icon -> Save event to Google Sheet -> Open WhatsApp
 Brochure:
 
 ```text
-Brochure icon -> Lead form -> Save to Google Sheet -> Download brochure-placeholder.pdf
+Brochure icon -> Lead form -> Save to Google Sheet -> Download vjs-brochure
 ```
 
 Brochure does not open WhatsApp, Gmail, Outlook, or any mail app.
